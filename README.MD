@@ -18,3 +18,4 @@ A Sublime Text 3 Plugin
 - https://cnpagency.com/blog/creating-sublime-text-3-plugins-part-1/
     - Key bindings
     - Menus
+- http://engineering.vinted.com/2016/06/27/how-to-write-sublime-plugin/
