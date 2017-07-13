@@ -1,0 +1,7 @@
+[
+    {
+        "caption": "Order Files",
+        "id": "open-file-manager",
+        "command": "open_file_manager"
+    }
+]
