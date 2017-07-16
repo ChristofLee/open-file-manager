@@ -9,6 +9,9 @@ class OpenFileManagerCommand(sublime_plugin.WindowCommand):
         # for i in openViews:
         #     print(openViews[x].file_name())
         #     x += 1
+        openFiles = self.getFilenames()
+        sortedFiles = self.sortByFilename(openFiles)
+        self.printFilenames(sortedFiles)
 
     # Re-order those files
         # Index the list
