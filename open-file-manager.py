@@ -3,7 +3,6 @@ import sublime_plugin
 
 class OpenFileManagerCommand(sublime_plugin.WindowCommand):
     def run(self):
-        print("Great Success!")
     # Get a list of all open files
         openViews = self.window.views()
         # x = 0
