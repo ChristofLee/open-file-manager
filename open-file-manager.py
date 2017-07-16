@@ -34,5 +34,3 @@ class OpenFileManagerCommand(sublime_plugin.WindowCommand):
         # Index the list
         # Filter by file extension
         # Apply a new index
-
-# view.run_command('open_file_manager')
