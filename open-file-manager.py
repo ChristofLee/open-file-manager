@@ -7,8 +7,8 @@ class OpenFileManagerCommand(sublime_plugin.WindowCommand):
     # Get a list of all open files
         openViews = self.window.views()
         # x = 0
-        # for i in views:
-        #     print(views[x].file_name())
+        # for i in openViews:
+        #     print(openViews[x].file_name())
         #     x += 1
 
     # Re-order those files
