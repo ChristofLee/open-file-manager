@@ -5,7 +5,7 @@ class OpenFileManagerCommand(sublime_plugin.WindowCommand):
     def run(self):
         openFiles = self.getFilenames()
         sortedFiles = self.sortByFilename(openFiles)
-        self.printFilenames(sortedFiles)
+        self.indexByFilename(sortedFiles)
 
     # Get all open files
     def getFilenames(self):
@@ -16,6 +16,14 @@ class OpenFileManagerCommand(sublime_plugin.WindowCommand):
     def sortByFilename(self, list):
         sortedFilenames = sorted(list, key=lambda x: x.file_name())
         return sortedFilenames
+
+    # Sort files alphabetically
+    def indexByFilename(self, list):
+        x = 0
+        for i in list:
+            print(x)
+            self.window.set_view_index(i, x, x)
+            x += 1
 
     # Display filenames (for debugging purposes)
     def printFilenames(self, list):
