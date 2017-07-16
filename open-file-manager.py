@@ -20,6 +20,11 @@ class OpenFileManagerCommand(sublime_plugin.WindowCommand):
         openFiles = self.window.views()
         return openFiles
 
+    # Sort files alphabetically
+    def sortByFilename(self, list):
+        sortedFilenames = sorted(list, key=lambda x: x.file_name())
+        return sortedFilenames
+
 
     # Filter list by file extensions
         # Index the list
