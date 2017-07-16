@@ -15,6 +15,11 @@ class OpenFileManagerCommand(sublime_plugin.WindowCommand):
         # Index the list
         # Sort alphabetically
         # Apply a new index
+    # Get all open files
+    def getFilenames(self):
+        openFiles = self.window.views()
+        return openFiles
+
 
     # Filter list by file extensions
         # Index the list
