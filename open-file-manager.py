@@ -98,3 +98,8 @@ class OpenFileManagerCommand(sublime_plugin.WindowCommand):
                 self.window.set_view_index(file, group_count, file_count)
                 file_count += 1
             group_count += 1
+
+    # Display filenames (for debugging purposes)
+    def printFilenames(self, list):
+        for i in list:
+            print(i.file_name())
