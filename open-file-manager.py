@@ -2,11 +2,15 @@ import sublime
 import sublime_plugin
 
 class OpenFileManagerCommand(sublime_plugin.WindowCommand):
+    debug = False
+
     def run(self):
         open_files = self.get_filenames()
         grouped_files = self.group_by_group_rules(open_files)
         ordered_files = self.order_files(grouped_files)
         self.index_by_filename(ordered_files)
+        if self.debug == True:
+            self.printFilenames(open_files)
 
     def group_by_group_rules(self, files):
         group_rules = {
