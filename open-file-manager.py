@@ -11,11 +11,18 @@ class OpenFileManagerCommand(sublime_plugin.WindowCommand):
 
     def run(self):
         open_files = self.get_filenames()
-        grouped_files = self.group_by_group_rules(open_files)
-        ordered_files = self.order_files(grouped_files)
-        self.index_by_filename(ordered_files)
         if self.debug == True:
-            self.printFilenames(open_files)
+            print("open_files")
+            self.printListFilenames(open_files)
+        grouped_files = self.group_by_group_rules(open_files)
+        if self.debug == True:
+            print("grouped_files")
+            self.printDictFilenames(grouped_files)
+        ordered_files = self.order_files(grouped_files)
+        if self.debug == True:
+            print("ordered_files")
+            self.printDictFilenames(ordered_files)
+        self.index_by_filename(ordered_files)
 
     def group_by_group_rules(self, files):
         return_dict = {}
@@ -103,7 +110,14 @@ class OpenFileManagerCommand(sublime_plugin.WindowCommand):
                 file_count += 1
             group_count += 1
 
-    # Display filenames (for debugging purposes)
-    def printFilenames(self, list):
+    ## DEBUG FUCNTIONS
+    # Display filenames of list
+    def printListFilenames(self, list):
         for i in list:
             print(i.file_name())
+
+    # Display filenames of dict
+    def printDictFilenames(self, dict):
+        for key,value in dict.items():
+            for i in value:
+                print(i.file_name())
