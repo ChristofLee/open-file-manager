@@ -4,9 +4,9 @@ import sublime_plugin
 class OpenFileManagerCommand(sublime_plugin.WindowCommand):
     debug = False
     group_rules = {
-        "1": [".php", ".html"],
-        "2": [".css", ".scss"],
-        "3": [".js", ".todo", "opening.php"]
+        "1": [".php", ".html", ".py"],
+        "2": [".css", ".scss", "LICENSE"],
+        "3": [".js", ".todo", "opening.php", ".sublime-menu"]
     }
 
     def run(self):
