@@ -8,6 +8,40 @@ class OpenFileManagerCommand(sublime_plugin.WindowCommand):
         "2": [".css", ".scss", "LICENSE"],
         "3": [".js", ".todo", "opening.php", ".sublime-menu"]
     }
+    oneWindowlayout = {
+        "cols": [0.0, 1.0],
+        "rows": [0.0, 1.0],
+        "cells": [
+            [0, 0, 1, 1],
+        ]
+    }
+    twoWindowlayout = {
+        "cols": [0.0, 0.5, 1.0],
+        "rows": [0.0, 1.0],
+        "cells": [
+            [0, 0, 1, 1],
+            [1, 0, 2, 1],
+        ]
+    }
+    threeWindowlayout = {
+        "cols": [0.0, 0.5, 1.0],
+        "rows": [0.0, 0.5, 1.0],
+        "cells": [
+            [0, 0, 1, 2],
+            [1, 0, 2, 1],
+            [1, 1, 2, 2]
+        ]
+    }
+    fourWindowLayout = {
+        "cols": [0.0, 0.5, 1.0],
+        "rows": [0.0, 0.5, 1.0],
+        "cells": [
+            [0, 0, 1, 1],
+            [1, 0, 2, 1],
+            [0, 1, 1, 2],
+            [1, 1, 2, 2]
+        ]
+    }
 
     def run(self):
         open_files = self.get_filenames()
@@ -65,43 +99,13 @@ class OpenFileManagerCommand(sublime_plugin.WindowCommand):
         group_count = 0
         window_count = len(ordered_files)
         if window_count == 1:
-            layout = {
-                "cols": [0.0, 1.0],
-                "rows": [0.0, 1.0],
-                "cells": [
-                    [0, 0, 1, 1],
-                ]
-            }
+            layout = self.oneWindowlayout
         elif window_count == 2:
-            layout = {
-                "cols": [0.0, 0.5, 1.0],
-                "rows": [0.0, 1.0],
-                "cells": [
-                    [0, 0, 1, 1],
-                    [1, 0, 2, 1],
-                ]
-            }
+            layout = self.twoWindowlayout
         elif window_count == 3:
-            layout = {
-                "cols": [0.0, 0.5, 1.0],
-                "rows": [0.0, 0.5, 1.0],
-                "cells": [
-                    [0, 0, 1, 2],
-                    [1, 0, 2, 1],
-                    [1, 1, 2, 2]
-                ]
-            }
+            layout = self.threeWindowlayout
         else:
-            layout = {
-                "cols": [0.0, 0.5, 1.0],
-                "rows": [0.0, 0.5, 1.0],
-                "cells": [
-                    [0, 0, 1, 1],
-                    [1, 0, 2, 1],
-                    [0, 1, 1, 2],
-                    [1, 1, 2, 2]
-                ]
-            }
+            layout = self.fourWindowLayout
         self.window.run_command('set_layout', layout)
         for group, files in ordered_files.items():
             file_count = 0
