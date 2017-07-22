@@ -3,6 +3,11 @@ import sublime_plugin
 
 class OpenFileManagerCommand(sublime_plugin.WindowCommand):
     debug = False
+    group_rules = {
+        "1": [".php", ".html"],
+        "2": [".css", ".scss"],
+        "3": [".js", ".todo", "opening.php"]
+    }
 
     def run(self):
         open_files = self.get_filenames()
@@ -13,16 +18,11 @@ class OpenFileManagerCommand(sublime_plugin.WindowCommand):
             self.printFilenames(open_files)
 
     def group_by_group_rules(self, files):
-        group_rules = {
-            "1": [".php", ".html"],
-            "2": [".css", ".scss"],
-            "3": [".js", ".todo", "opening.php"]
-        }
         return_dict = {}
         for file in files:
             file_placed = False
             filename = file.file_name()
-            for group, rules in group_rules.items():
+            for group, rules in self.group_rules.items():
                 for rule in rules:
                     if filename and rule in filename:
                         if group not in return_dict:
