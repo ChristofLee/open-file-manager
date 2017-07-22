@@ -1,0 +1,13 @@
+This plugin was created to help organise having lots of open tabs.
+An issue I came across with SublimeCodeIntel and trying to get variables.
+
+I primarily work in HTML/PHP, CSS/SCSS and JS so these are the default settings.
+
+However the user preferences contain options for what files will be displayed in
+which window and you are free to customise these.
+
+If you have any bugs or feature requests, go here:
+https://github.com/ChristofLee/open-file-manager/issues
+
+If you want to contribute to the project, go here:
+https://github.com/ChristofLee/open-file-manager/
